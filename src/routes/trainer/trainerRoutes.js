@@ -6,3 +6,4 @@ routes.get("/trainers", async (req, res) => {
 });
 
 module.exports = routes;
+// localhost:5000/api/v1/pokedex/trainers
