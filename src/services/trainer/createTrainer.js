@@ -1,9 +1,9 @@
-const createTrainer = async (req, res) => {
-    const { body } = req;
-    console.log(req);
-    // Crear una funcion en dataAccess y mandar el Body
-    
-  return { success: true, message: "Trainer was created successfully", body };
+const { createTrainer } = require("../../dataAccess/trainer");
+const createTrainerService = async (req, res) => {
+  const { body } = req;
+  console.log(body);
+  const trainer = await createTrainer(body);
+  return { success: true, message: "Trainer was created successfully", trainer };
 };
 
-module.exports = createTrainer;
+module.exports = createTrainerService;

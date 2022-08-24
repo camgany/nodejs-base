@@ -11,10 +11,10 @@ const findAll = () => {
   });
 };
 
-const createTraine = (body) => {
-  const {nombre, id_pokemon} = body;
-  // String Template 
-  let query = `insert into trainer (nombre, id_pokemon) values (${nombre}, ${id_pokemon})`
+const createTrainer = (body) => {
+  const { nombre, id_pokemon } = body;
+  // String Template
+  let query = `insert into entrenador (nombre, id_pokemon) values ( '${nombre}' , ${id_pokemon} );`;
   return new Promise((resolve, reject) => {
     sql.query(query, (err, res) => {
       if (err) {
@@ -23,6 +23,6 @@ const createTraine = (body) => {
       resolve(res);
     });
   });
-}
+};
 
-module.exports = { findAll };
+module.exports = { findAll, createTrainer };
