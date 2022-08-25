@@ -25,4 +25,18 @@ const createTrainer = (body) => {
   });
 };
 
-module.exports = { findAll, createTrainer };
+const findById = (params) => {
+  const {id} = params;
+  return new Promise((resolve, reject) => {
+    sql.query(`SELECT * FROM entrenador WHERE codigo = ${id} `, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res);
+    });
+  });
+};
+
+
+
+module.exports = { findAll, createTrainer, findById};
